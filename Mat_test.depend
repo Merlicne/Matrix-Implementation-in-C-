@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1698839295 source:d:\somethingidroppedin\c\mat_test\main.cpp
+	<iostream>
+	"Mat.h"
+
+1698839389 d:\somethingidroppedin\c\mat_test\mat.h
+
