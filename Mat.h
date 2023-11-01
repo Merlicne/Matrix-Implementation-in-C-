@@ -128,6 +128,7 @@ class MAT
 float randfloat();
 
 void mat_sum(MAT dest, MAT a, MAT b);
+void mat_dot(MAT dest, MAT a, MAT b);
 void mat_mul(MAT dest, MAT a, MAT b);
 
 void mat_fill(MAT a,float value);
@@ -183,6 +184,28 @@ void mat_sum(MAT dest, MAT a, MAT b)
         for(size_t j=0;j<dest.getCols();j++)
         {
             float sum = a.getElement(i,j)+b.getElement(i,j);
+            dest.setElement(sum,i,j);
+        }
+    }
+
+}
+
+void mat_dot(MAT dest, MAT a, MAT b)
+{
+    if(a.getRows() != b.getRows())
+        throw std::invalid_argument("first MAT' rows not equal to second MAT");
+    if(b.getCols() != a.getCols())
+        throw std::invalid_argument("first MAT' cols not equal to second MAT");
+    if(dest.getRows() != b.getRows())
+        throw std::invalid_argument("dest MAT' rows invalid");
+    if(dest.getCols() != a.getCols())
+        throw std::invalid_argument("dest MAT' cols invalid");
+
+    for(size_t i=0;i<dest.getRows();i++)
+    {
+        for(size_t j=0;j<dest.getCols();j++)
+        {
+            float sum = a.getElement(i,j)*b.getElement(i,j);
             dest.setElement(sum,i,j);
         }
     }
