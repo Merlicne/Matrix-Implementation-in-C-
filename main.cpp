@@ -22,13 +22,15 @@ int main()
     b.print_mat();
 
     mat_sum(c,a,b);
+    c.print_mat();
 
+    mat_dot(c,a,b);
     c.print_mat();
 
     mat_mul(c,a,b);
+    c.print_mat();
     a.deallocate();
     b.deallocate();
-    c.print_mat();
     c.getRow(1).print_mat();
     c.getCol(1).print_mat();
     c.clone().print_mat();
